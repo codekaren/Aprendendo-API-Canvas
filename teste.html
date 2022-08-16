@@ -1,0 +1,57 @@
+
+<!-- Aprendendo usar métodos de API (bibliotecas) Canvas, usando JS na manipulação:
+  <canvas></canvas>
+  getContext();
+  pincel.fillStyle = 
+  pincel.fillRect(Xinicial, Y, Xfinal, Y); 
+  pincel.beginPath();
+  pincel.moveTo(X,Y); 
+  pincel.lineTo(X, Y); 
+  pincel.arc(300, 200, 50, 0, 2 * 3.14);  (X, Y, Raio do circulo/Tamanho, angulo inicial, e ângulo final em radiano)
+  pincel.fill();
+-->
+
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandeira</title>
+</head>
+<body>
+  <canvas width="600" height="400"> <!--Área que permite desenhar na tela e quais suas dimensões (altura e largura) que ocupam a tela-->
+  </canvas>
+
+  <script>
+    var tela = document.querySelector('canvas'); //Armazenando o canvas na var tela
+    var pincel = tela.getContext('2d'); //Criando um var pincel e determinando o seu contexto em 2d (podemos também usar 3d ou 4d)
+
+    pincel.fillStyle = 'white'; //Tinta que vamos utilizar
+    pincel.fillRect(0, 0, 600, 400);/*Aplicando retângulo na tela = A partir do plano catersiano, temos um eixo X horizontal e um eixo Y vertical,
+    devemos determinar onde o pincel será posicionado inicialmente em X, Y depois qual a largura e a altura do desenho ex: (0, 0, 600, 400).
+    A área pintada tem que respeitar os limites de dimensão do canvas*/
+
+    pincel.fillStyle = "green";
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = "red";
+    pincel.fillRect(400, 0, 200, 400);
+
+    //Triângulo
+    pincel.fillStyle = 'yellow'; //Cor
+    pincel.beginPath(); //Caminho de inicio
+    pincel.moveTo(300, 200); //Primeiro ponto = Determinar X, Y (moveTo move o ponto para)
+    pincel.lineTo(200, 400); //Segundo ponto = X, Y  (lineTo desenha uma linha)
+    pincel.lineTo(400,400); //Terceiro ponto = x, y
+    pincel.fill(); //Preencher o centro dos pontos determinados
+
+    //Circulo
+    pincel.fillStyle = 'blue'; //Cor
+    pincel.beginPath(); //Caminho de inicio
+    pincel.arc(300, 200, 50, 0, 2 * 3.14); //Desenhar em formato "arco" para formar o circulo, de acordo com os pontos determinados
+    pincel.fill(); //Preencher  o centro dos pontos determinados
+    
+  </script>
+</body>
+</html>

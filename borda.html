@@ -1,0 +1,37 @@
+<!--
+  pincel.fillStrock = 'color';  Cria bordas
+  pincel.strokeRect(x, y, x, y); //Medidas das bordas
+  Usar funções para deixar código mais limpo
+  Usar estruturas de repetição para deixar código mais limpo
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borda</title>
+</head>
+<body>
+  <canvas width="600" height="400"></canvas>
+  <script>
+    function desenharQuadrado(x, y, cor) {
+      var tela = document.querySelector('canvas');
+      var pincel = tela.getContext('2d');
+
+      pincel.fillStyle = cor;
+      pincel.fillRect(x, y, 50, 50);
+      pincel.fillStrock = 'black';
+      pincel.strokeRect(x, y, 50, 50);
+    }
+    var x = 0;
+    while (x < 600) {
+      desenharQuadrado(x, 0, 'pink');
+      desenharQuadrado(x, 50, 'red');
+      desenharQuadrado(x, 100, 'green');
+      desenharQuadrado(x, 150, 'blue');
+      x += 50;
+    }
+  </script>
+</body>
+</html>
